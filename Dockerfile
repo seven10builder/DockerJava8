@@ -30,9 +30,9 @@ RUN mkdir -p /var/run/sshd
 # Add user jenkins to the image 
 RUN adduser --quiet jenkins && \
 # Set password for the jenkins user (you may want to alter this). 
-	echo "jenkins:jenkins" | chpasswd
+	echo "jenkins:jenkins" | chpasswd && \
 # generate a default locale to keep certain warnings at bay
-	locale-gen en_US.UTF-8 && \
+	locale-gen en_US.UTF-8
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
